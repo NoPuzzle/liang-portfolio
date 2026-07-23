@@ -21,7 +21,7 @@ No actionable P0, P1, or P2 differences remain.
 - Spacing and layout rhythm: the hero keeps the source's asymmetric title-and-signal-panel composition. The profile rail, four-card education archive, offset research grid, and trajectory timeline use deliberate negative space without leaving content visually disconnected.
 - Colors and visual tokens: the near-black canvas, deep navy surfaces, cyan signal color, restrained cobalt accents, and low-contrast borders remain consistent across every section and pass visual contrast checks.
 - Image quality and asset fidelity: the project-owned raster background `public/assets/midnight-systems-background.png` loads sharply, has no placeholder state, and supports the technical grid and orbital motif without overpowering the text.
-- Copy and content: the current CMHK/IRI role, Imperial and EPFL research path, SWIX, LITune, HIRE, public engagements, service, and four verified education records render in the intended hierarchy. No private contact or address data is shown.
+- Copy and content: the current EPFL/DIAS postdoctoral role, Imperial and EPFL research path, SWIX, LITune, HIRE, public engagements, service, and four verified education records render in the intended hierarchy. No private contact or address data is shown.
 - Responsiveness: at 390 × 844 the page width equals the viewport width, the hero wraps cleanly, the signal panel becomes a full-width block, and every education card remains readable without horizontal overflow.
 - Interaction and accessibility: Education and Trajectory navigation links scroll to their corresponding anchors; all publication, engagement, and profile links have valid destinations and safe external-link attributes. Focus and reduced-motion styles are present.
 - Browser checks: the background asset is loaded and no console warnings or errors were observed during desktop and mobile interaction checks.
@@ -39,6 +39,12 @@ No actionable P0, P1, or P2 differences remain.
 - Finding [P2]: the new long-form hierarchy required explicit narrow-screen validation, especially the oversized headline and degree titles.
 - Fix: tested the production page at 390 × 844, verified computed document width against the viewport, exercised the Education anchor, and captured the education region.
 - Post-fix evidence: `qa/redesign-mobile-390-v1.png` and `qa/redesign-mobile-education-390-v1.png` show a clean single-column layout with no horizontal overflow.
+
+### Iteration 3
+
+- Finding [P0]: the current-role panel incorrectly identified Liang Liang as working at CMHK.
+- Fix: removed every current-employment reference to CMHK and aligned the profile with the user-confirmed EPFL/DIAS postdoctoral role, research focus, metadata, profile rail, and trajectory.
+- Post-fix evidence: refreshed `qa/redesign-desktop-1600-v1.png`, `qa/redesign-mobile-390-v1.png`, and `qa/redesign-comparison-1600-v2.png`; browser text checks contain no `China Mobile` or `CMHK` strings.
 
 ## Focused Region Comparison
 

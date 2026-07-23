@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Liang Liang — Frontier AI Research & Systems",
+  title: "Liang Liang — Data-Intensive Systems Research",
   description:
-    "Liang Liang is an AI research and technology manager working across frontier AI, multilingual intelligence, data systems, and network-enabled AI.",
+    "Liang Liang is a postdoctoral researcher at EPFL working across learned indexes, vector databases, DB4AI, stream processing, and high-performance computing.",
 };
 
 const education = [
@@ -75,19 +75,19 @@ const research = [
 const trajectory = [
   {
     marker: "NOW",
-    title: "AI Frontier Technology Research Manager",
+    title: "Postdoctoral researcher",
     organization:
-      "China Mobile (Hong Kong) · Innovation Research Institute",
-  },
-  {
-    marker: "POSTDOC",
-    title: "Data-intensive systems research",
-    organization: "EPFL · Data-Intensive Applications and Systems Laboratory",
+      "EPFL · Data-Intensive Applications and Systems Laboratory",
   },
   {
     marker: "PHD",
     title: "Stream processing and learned indexes",
     organization: "Imperial College London · Computing",
+  },
+  {
+    marker: "FOUNDATION",
+    title: "High-performance computing and data science",
+    organization: "University of Edinburgh · Monash University",
   },
 ];
 
@@ -137,13 +137,13 @@ export default function Home() {
           <a href="#trajectory">Trajectory</a>
         </nav>
 
-        <span className="status">HKG · SIGNAL ACTIVE</span>
+        <span className="status">EPFL · RESEARCH ACTIVE</span>
       </header>
 
       <main>
         <section className="hero shell" id="profile" aria-labelledby="hero-title">
           <div className="hero-copy">
-            <p className="eyebrow">AI RESEARCH &amp; TECHNOLOGY MANAGER / HONG KONG</p>
+            <p className="eyebrow">POSTDOCTORAL RESEARCHER / EPFL</p>
             <h1 id="hero-title">
               <span>Liang Liang</span>
               Frontier AI,
@@ -153,8 +153,8 @@ export default function Home() {
               <em>the field.</em>
             </h1>
             <p className="hero-intro">
-              I work where research systems meet real-world deployment—across
-              multilingual intelligence, AI data systems, and network-enabled AI.
+              I work on data-intensive systems—from learned indexes and stream
+              processing to vector databases, DB4AI, and scientific workflows.
             </p>
             <div className="hero-actions">
               <a href="#research">Explore selected research</a>
@@ -167,16 +167,16 @@ export default function Home() {
               <span>CURRENT SIGNAL</span>
               <span>2026 / LIVE</span>
             </div>
-            <p className="signal-code">CMHK / IRI</p>
-            <h2>AI Frontier Technology Research Manager</h2>
+            <p className="signal-code">EPFL / DIAS</p>
+            <h2>Postdoctoral Researcher</h2>
             <p className="signal-org">
-              China Mobile (Hong Kong)
+              École polytechnique fédérale de Lausanne
               <br />
-              Innovation Research Institute
+              Data-Intensive Applications and Systems Laboratory
             </p>
             <p className="signal-bio">
-              Translating frontier research into deployment-oriented AI services,
-              with a foundation in learned systems, stream processing, and
+              Researching learned indexes, vector databases, and DB4AI, with a
+              foundation in stream processing, scientific workflows, and
               high-performance computing.
             </p>
             <dl className="signal-metrics">
@@ -189,8 +189,8 @@ export default function Home() {
                 <dd>Degree records</dd>
               </div>
               <div>
-                <dt>01</dt>
-                <dd>Active research node</dd>
+                <dt>DIAS</dt>
+                <dd>Research laboratory</dd>
               </div>
             </dl>
           </aside>
@@ -199,19 +199,19 @@ export default function Home() {
         <section className="profile-rail shell" aria-label="Profile highlights">
           <div>
             <span>01 / CURRENT</span>
-            <strong>China Mobile Hong Kong</strong>
+            <strong>EPFL · DIAS</strong>
           </div>
           <div>
             <span>02 / FOCUS</span>
-            <strong>Frontier &amp; multilingual AI</strong>
+            <strong>Learned indexes &amp; DB4AI</strong>
           </div>
           <div>
             <span>03 / SYSTEMS</span>
-            <strong>Data intelligence at scale</strong>
+            <strong>Vector databases at scale</strong>
           </div>
           <div>
             <span>04 / PATH</span>
-            <strong>Imperial · EPFL · CMHK</strong>
+            <strong>Imperial → EPFL</strong>
           </div>
         </section>
 
@@ -231,7 +231,7 @@ export default function Home() {
             </div>
             <p className="section-note">
               Four academic chapters formed a trajectory from human systems to
-              computational systems—and eventually to frontier AI deployment.
+              computational systems—and eventually to data-intensive systems research.
             </p>
           </div>
 
@@ -267,7 +267,8 @@ export default function Home() {
             </div>
             <p className="section-note">
               A focused body of work spanning memory-efficient indexes,
-              learning-guided optimization, and deployable AI infrastructure.
+              learning-guided optimization, hybrid indexes, and data-intensive
+              infrastructure.
             </p>
           </div>
 
@@ -298,7 +299,7 @@ export default function Home() {
               <p>FIELD LOG</p>
             </div>
             <div>
-              <p className="section-kicker">FROM RESEARCH TO DEPLOYMENT</p>
+              <p className="section-kicker">DATA-INTENSIVE SYSTEMS</p>
               <h2 id="trajectory-title">
                 A trajectory through
                 <br />
@@ -306,8 +307,8 @@ export default function Home() {
               </h2>
             </div>
             <p className="section-note">
-              Academic depth, systems practice, and industry-scale AI now converge
-              in one deployment-oriented research program.
+              Academic depth across data systems, HPC, and learned indexes now
+              converges in an active research programme at EPFL.
             </p>
           </div>
 

@@ -15,9 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Liang Liang — Frontier AI Research & Systems",
+  title: "Liang Liang — Data-Intensive Systems Research",
   description:
-    "Liang Liang is an AI research and technology manager working across frontier AI, multilingual intelligence, data systems, and network-enabled AI.",
+    "Liang Liang is a postdoctoral researcher at EPFL working across learned indexes, vector databases, DB4AI, stream processing, and high-performance computing.",
   icons: {
     icon: `${basePath}/favicon.svg`,
     shortcut: `${basePath}/favicon.svg`,
