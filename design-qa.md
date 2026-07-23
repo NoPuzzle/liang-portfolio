@@ -18,11 +18,11 @@
 No actionable P0, P1, or P2 differences remain.
 
 - Fonts and typography: the redesigned display headline, oversized section statements, monospaced metadata, tight leading, and muted name treatment preserve the selected midnight-systems character while creating a stronger editorial hierarchy.
-- Spacing and layout rhythm: the hero keeps the source's asymmetric title-and-signal-panel composition. The profile rail, four-card education archive, offset research grid, and trajectory timeline use deliberate negative space without leaving content visually disconnected.
+- Spacing and layout rhythm: the hero keeps the source's asymmetric title-and-signal-panel composition. The featured doctoral record, offset research grid, and trajectory timeline use deliberate negative space without leaving content visually disconnected.
 - Colors and visual tokens: the near-black canvas, deep navy surfaces, cyan signal color, restrained cobalt accents, and low-contrast borders remain consistent across every section and pass visual contrast checks.
 - Image quality and asset fidelity: the project-owned raster background `public/assets/midnight-systems-background.png` loads sharply, has no placeholder state, and supports the technical grid and orbital motif without overpowering the text.
-- Copy and content: the current EPFL/DIAS postdoctoral role, Imperial and EPFL research path, SWIX, LITune, HIRE, public engagements, service, and four verified education records render in the intended hierarchy. No private contact or address data is shown.
-- Responsiveness: at 390 × 844 the page width equals the viewport width, the hero wraps cleanly, the signal panel becomes a full-width block, and every education card remains readable without horizontal overflow.
+- Copy and content: the current EPFL/DIAS postdoctoral role, Imperial and EPFL research path, SWIX, LITune, HIRE, public engagements, service, and doctoral record render in the intended hierarchy. Graduate and undergraduate records are intentionally omitted. No private contact or address data is shown.
+- Responsiveness: at 390 × 844 the page width equals the viewport width, the hero wraps cleanly, the signal panel becomes a full-width block, and the doctoral card remains readable without horizontal overflow.
 - Interaction and accessibility: Education and Trajectory navigation links scroll to their corresponding anchors; all publication, engagement, and profile links have valid destinations and safe external-link attributes. Focus and reduced-motion styles are present.
 - Browser checks: the background asset is loaded and no console warnings or errors were observed during desktop and mobile interaction checks.
 
@@ -46,10 +46,16 @@ No actionable P0, P1, or P2 differences remain.
 - Fix: removed every current-employment reference to CMHK and aligned the profile with the user-confirmed EPFL/DIAS postdoctoral role, research focus, metadata, profile rail, and trajectory.
 - Post-fix evidence: refreshed `qa/redesign-desktop-1600-v1.png`, `qa/redesign-mobile-390-v1.png`, and `qa/redesign-comparison-1600-v2.png`; browser text checks contain no `China Mobile` or `CMHK` strings.
 
+### Iteration 4
+
+- Finding [P1]: graduate and undergraduate education records remained visible after the profile scope was narrowed.
+- Fix: removed both master's records and the undergraduate record, changed the education section to one featured doctoral record, and removed graduate institutions from the career trajectory.
+- Post-fix evidence: refreshed desktop and mobile education screenshots confirm that only the Imperial College London PhD is displayed.
+
 ## Focused Region Comparison
 
 - Hero and signal panel: checked headline line breaks, name treatment, metadata scale, border weight, role hierarchy, statistics, and background arc treatment against the reference.
-- Education archive: checked all four records for order, readable dates, institution prominence, balanced card height, and mobile wrapping.
+- Education archive: checked the single doctoral record for readable dates, institution prominence, balanced wide-card layout, and mobile wrapping.
 - Research and trajectory: checked card asymmetry, title scale, metadata density, link placement, timeline flow, and desktop-to-mobile stacking.
 
 ## Follow-up Polish

@@ -398,15 +398,17 @@ h1 em {
 
 .education-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
+  grid-template-columns: minmax(0, 1fr);
 }
 
 .degree-card {
-  min-height: 390px;
-  display: flex;
-  flex-direction: column;
-  padding: 26px;
+  min-height: 330px;
+  display: grid;
+  grid-template-columns: minmax(120px, 0.45fr) minmax(300px, 1fr) minmax(260px, 0.85fr);
+  grid-template-rows: auto 1fr;
+  align-items: end;
+  gap: clamp(28px, 4vw, 72px);
+  padding: 32px 36px;
   border: 1px solid #283349;
   background: rgb(7 12 22 / 88%);
   transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
@@ -419,40 +421,56 @@ h1 em {
 }
 
 .degree-meta {
+  grid-column: 1 / -1;
+  align-self: start;
   display: flex;
   justify-content: space-between;
   gap: 18px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--line);
   color: var(--cyan);
   font-size: 8px;
   letter-spacing: 0.12em;
 }
 
 .degree-place {
-  margin: 56px 0 18px;
+  margin: 0 0 14px;
   color: #69758a;
   font-size: 8px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
-.degree-card h3 {
+.degree-location > span {
+  color: #4f5b70;
+  font-family: var(--mono);
+  font-size: 7px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.degree-primary h3 {
   margin: 0;
-  font-size: clamp(25px, 2.1vw, 34px);
+  font-size: clamp(34px, 3.4vw, 54px);
   letter-spacing: -0.045em;
   line-height: 1.02;
 }
 
-.degree-card > strong {
+.degree-primary strong {
+  display: block;
   margin-top: 18px;
   color: #d7dfed;
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.5;
 }
 
 .degree-card > p:last-child {
-  margin: auto 0 0;
-  padding-top: 28px;
-  border-top: 1px solid var(--line);
+  min-height: 116px;
+  display: flex;
+  align-items: flex-end;
+  margin: 0;
+  padding: 0 0 0 30px;
+  border-left: 1px solid var(--line);
   color: #8793a8;
   font-size: 12px;
   line-height: 1.65;
@@ -763,11 +781,12 @@ h1 em {
   }
 
   .education-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
   }
 
   .degree-card {
-    min-height: 360px;
+    min-height: 330px;
+    gap: 28px;
   }
 
   .research-grid,
@@ -897,7 +916,32 @@ h1 em {
   }
 
   .degree-card {
-    min-height: 350px;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 26px;
+  }
+
+  .degree-location {
+    margin-top: 48px;
+  }
+
+  .degree-primary {
+    margin-top: 28px;
+  }
+
+  .degree-primary h3 {
+    font-size: clamp(34px, 10vw, 48px);
+  }
+
+  .degree-card > p:last-child {
+    min-height: 0;
+    margin-top: 48px;
+    padding: 28px 0 0;
+    border-top: 1px solid var(--line);
+    border-left: 0;
   }
 
   .research-card,

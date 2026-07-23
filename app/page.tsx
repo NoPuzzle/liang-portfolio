@@ -6,41 +6,14 @@ export const metadata: Metadata = {
     "Liang Liang is a postdoctoral researcher at EPFL working across learned indexes, vector databases, DB4AI, stream processing, and high-performance computing.",
 };
 
-const education = [
-  {
-    code: "D.01",
-    period: "2020—2024",
-    degree: "PhD in Computing",
-    school: "Imperial College London",
-    detail:
-      "Stream data processing, system optimization, and learned indexes.",
-    note: "United Kingdom",
-  },
-  {
-    code: "D.02",
-    period: "2019—2020",
-    degree: "MSc High Performance Computing with Data Science",
-    school: "University of Edinburgh",
-    detail: "Graduated with Distinction; scientific workflow optimization.",
-    note: "United Kingdom",
-  },
-  {
-    code: "D.03",
-    period: "2017—2019",
-    degree: "Master of Data Science",
-    school: "Monash University",
-    detail: "Graduated with High Distinction; parallel query processing.",
-    note: "Australia",
-  },
-  {
-    code: "D.04",
-    period: "2012—2016",
-    degree: "Law & Human Resource Management",
-    school: "Tianjin Polytechnic University",
-    detail: "Dual undergraduate disciplines spanning law and management.",
-    note: "China",
-  },
-];
+const education = {
+  code: "D.01",
+  period: "2020—2024",
+  degree: "PhD in Computing",
+  school: "Imperial College London",
+  detail: "Stream data processing, system optimization, and learned indexes.",
+  note: "United Kingdom",
+};
 
 const research = [
   {
@@ -83,11 +56,6 @@ const trajectory = [
     marker: "PHD",
     title: "Stream processing and learned indexes",
     organization: "Imperial College London · Computing",
-  },
-  {
-    marker: "FOUNDATION",
-    title: "High-performance computing and data science",
-    organization: "University of Edinburgh · Monash University",
   },
 ];
 
@@ -185,8 +153,8 @@ export default function Home() {
                 <dd>Selected systems</dd>
               </div>
               <div>
-                <dt>04</dt>
-                <dd>Degree records</dd>
+                <dt>01</dt>
+                <dd>Doctoral record</dd>
               </div>
               <div>
                 <dt>DIAS</dt>
@@ -222,32 +190,35 @@ export default function Home() {
               <p>EDUCATION ARCHIVE</p>
             </div>
             <div>
-              <p className="section-kicker">A CROSS-DISCIPLINARY FOUNDATION</p>
+              <p className="section-kicker">DOCTORAL FOUNDATION</p>
               <h2 id="education-title">
-                Built across law,
+                Doctoral work
                 <br />
-                data, and systems.
+                in systems.
               </h2>
             </div>
             <p className="section-note">
-              Four academic chapters formed a trajectory from human systems to
-              computational systems—and eventually to data-intensive systems research.
+              A PhD in Computing established the systems foundation for current
+              research in learned indexes and data-intensive infrastructure.
             </p>
           </div>
 
           <div className="education-grid">
-            {education.map((item) => (
-              <article className="degree-card" key={item.code}>
-                <div className="degree-meta">
-                  <span>{item.code}</span>
-                  <span>{item.period}</span>
-                </div>
-                <p className="degree-place">{item.note}</p>
-                <h3>{item.degree}</h3>
-                <strong>{item.school}</strong>
-                <p>{item.detail}</p>
-              </article>
-            ))}
+            <article className="degree-card">
+              <div className="degree-meta">
+                <span>{education.code}</span>
+                <span>{education.period}</span>
+              </div>
+              <div className="degree-location">
+                <p className="degree-place">{education.note}</p>
+                <span>Doctoral record</span>
+              </div>
+              <div className="degree-primary">
+                <h3>{education.degree}</h3>
+                <strong>{education.school}</strong>
+              </div>
+              <p>{education.detail}</p>
+            </article>
           </div>
         </section>
 

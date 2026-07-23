@@ -38,9 +38,11 @@ test("server-renders the portfolio content and metadata", async () => {
   assert.match(html, /EPFL \/ DIAS/);
   assert.doesNotMatch(html, /China Mobile|CMHK/);
   assert.match(html, /Imperial College London/);
-  assert.match(html, /University of Edinburgh/);
-  assert.match(html, /Monash University/);
-  assert.match(html, /Tianjin Polytechnic University/);
+  assert.match(html, /PhD in Computing/);
+  assert.doesNotMatch(
+    html,
+    /University of Edinburgh|Monash University|Tianjin Polytechnic University|Master of Data Science|Law &amp; Human Resource Management/,
+  );
   assert.match(html, /SWIX/);
   assert.match(html, /LITune/);
   assert.match(html, /HIRE/);
