@@ -31,10 +31,14 @@ test("server-renders the portfolio content and metadata", async () => {
   const html = await response.text();
   assert.match(
     html,
-    /<title>Liang Liang — AI Research &amp; Technology Manager<\/title>/i,
+    /<title>Liang Liang — Frontier AI Research &amp; Systems<\/title>/i,
   );
-  assert.match(html, /Frontier AI systems/);
+  assert.match(html, /Frontier AI,/);
   assert.match(html, /China Mobile \(Hong Kong\)/);
+  assert.match(html, /Imperial College London/);
+  assert.match(html, /University of Edinburgh/);
+  assert.match(html, /Monash University/);
+  assert.match(html, /Tianjin Polytechnic University/);
   assert.match(html, /SWIX/);
   assert.match(html, /LITune/);
   assert.match(html, /HIRE/);
@@ -54,7 +58,7 @@ test("keeps the selected visual and project assets durable", async () => {
   assert.match(page, /className="site"/);
   assert.match(page, /midnight|AI Research|Technology Manager/i);
   assert.doesNotMatch(page, /SkeletonPreview/);
-  assert.match(layout, /Liang Liang — AI Research & Technology Manager/);
+  assert.match(layout, /Liang Liang — Frontier AI Research & Systems/);
   assert.match(css, /midnight-systems-background\.png/);
   assert.match(css, /@media \(max-width: 720px\)/);
   assert.match(css, /prefers-reduced-motion: reduce/);

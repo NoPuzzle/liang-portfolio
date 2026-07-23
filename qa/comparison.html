@@ -2,18 +2,26 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Desktop design comparison</title>
+    <title>Redesign desktop comparison</title>
     <style>
       * { box-sizing: border-box; }
-      html, body { margin: 0; background: #05070d; }
-      main { width: 800px; height: 1000px; }
-      img { display: block; width: 800px; height: 500px; object-fit: cover; }
+      html, body { margin: 0; background: #05070d; color: #f4f6fb; font-family: Arial, sans-serif; }
+      main { display: grid; grid-template-columns: 1fr 1fr; width: 1600px; height: 1000px; }
+      figure { display: grid; grid-template-rows: 50px 1fr; min-width: 0; margin: 0; border-right: 1px solid #2a3040; }
+      figcaption { display: flex; align-items: center; padding: 0 24px; color: #80edf6; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; }
+      img { display: block; width: 100%; height: 950px; object-fit: contain; object-position: top center; background: #070910; }
     </style>
   </head>
   <body>
-    <main aria-label="Source design followed by implementation">
-      <img src="../design-reference/midnight-systems-reference.png?v=source-1" alt="Source design" />
-      <img src="implementation-desktop-viewport-v2.png?v=implementation-2" alt="Implementation" />
+    <main aria-label="Source design and redesigned implementation">
+      <figure>
+        <figcaption>Source visual truth</figcaption>
+        <img src="../design-reference/midnight-systems-reference.png?v=source-redesign" alt="Source design" />
+      </figure>
+      <figure>
+        <figcaption>Redesigned implementation</figcaption>
+        <img src="redesign-desktop-1600-v1.png?v=implementation-redesign" alt="Redesigned implementation" />
+      </figure>
     </main>
   </body>
 </html>
