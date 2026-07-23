@@ -22,13 +22,13 @@
 No actionable P0, P1, or P2 differences remain.
 
 - Fonts and typography: Geist Mono now carries the complete interface, including display headlines, body copy, metadata, cards, and navigation. Reduced headline sizes, calmer tracking, and slightly taller line-height maintain readability while creating a research-dossier character.
-- Spacing and layout rhythm: the opening viewport uses a compact academic identity header followed by a two-column dossier: linked recent activity on the left, current Innovation Research Institute role plus the prior EPFL appointment and doctoral education on the right. Later research and trajectory sections preserve their asymmetric structure.
+- Spacing and layout rhythm: the opening viewport uses a compact academic identity header followed by a two-column dossier: linked recent activity on the left, with the current Innovation Research Institute role, prior EPFL appointment, and doctoral education presented as three independent cards on the right. Later research and trajectory sections preserve their asymmetric structure.
 - Colors and visual tokens: the canvas is a brighter slate-blue drafting-paper field with dark translucent research cards, paper-white text, muted cyan annotations, and visible but restrained rules.
 - Image quality and asset fidelity: the generated project-owned raster background `public/assets/academic-systems-background.png` provides paper grain, fine coordinate grid, graph traces, and measurement marks without readable text or placeholder content.
-- Copy and content: the current AI Frontier Technology Research Manager role at China Mobile (Hong Kong) Innovation Research Institute is supported by the official AI for Good speaker profile; EPFL is correctly presented as a prior postdoctoral appointment. The Imperial PhD, SWIX, LITune, HIRE, public engagements, and service remain visible. Graduate and undergraduate records are intentionally omitted. No private contact or address data is shown.
-- Responsiveness: at 390 × 844 the page width equals the viewport width, the hero wraps cleanly, the signal panel becomes a full-width block, and the doctoral card remains readable without horizontal overflow.
-- Interaction and accessibility: Education and Research navigation links scroll to their corresponding anchors; all three first-screen activity rows expose visible `OPEN ↗` affordances and point to official AI for Good pages with safe external-link attributes. Focus and reduced-motion styles are present.
-- Browser checks: the latest 1280 × 720 desktop render has no horizontal overflow, the background and Geist Mono load, and the new work history plus all three official activity destinations render correctly. Existing 1600 × 1000 and 390 × 844 regression captures remain valid for the unchanged responsive structure.
+- Copy and content: the current AI Frontier Technology Research Manager role at China Mobile (Hong Kong) Innovation Research Institute is supported by the official AI for Good speaker profile; EPFL is correctly presented as a separate prior postdoctoral appointment. The Imperial PhD, SWIX, LITune, HIRE, public engagements, and service remain visible. Graduate and undergraduate records are intentionally omitted. No private contact or address data is shown.
+- Responsiveness: at 390 × 844 the page width equals the viewport width, the hero wraps cleanly, the three profile cards stack independently, and the two-column external-profile link grid remains readable without horizontal overflow.
+- Interaction and accessibility: Education and Research navigation links scroll to their corresponding anchors; all three first-screen activity rows expose visible `OPEN ↗` affordances and point to official AI for Good pages with safe external-link attributes. The footer adds LinkedIn, a precise Google Scholar publication search, ORCID, a verified Semantic Scholar author record, ITU profile, and GitHub. Focus and reduced-motion styles are present.
+- Browser checks: the latest 1280 × 800 desktop and 390 × 844 mobile renders have no horizontal overflow or browser warnings/errors. DOM inspection confirms that current position, previous appointment, and doctoral education are sibling cards rather than nested content.
 
 ## Comparison History
 
@@ -68,6 +68,12 @@ No actionable P0, P1, or P2 differences remain.
 - Fix: used the official AI for Good speaker and programme pages to identify the current role as AI Frontier Technology Research Manager at China Mobile (Hong Kong) Innovation Research Institute, moved EPFL to previous appointment, added both confirmed July 2026 sessions, and gave each activity a visible `OPEN ↗` affordance.
 - Sources: `https://aiforgood.itu.int/speaker/liang-liang/`, `https://aiforgood.itu.int/event/advancing-ai-in-networks/`, and `https://aiforgood.itu.int/event/innovate-for-impact/`.
 - Post-fix evidence: `qa/content-update-desktop-1280.jpg`; rendered HTML tests assert the current role, organization, prior EPFL appointment, and all three official destinations.
+
+### Iteration 7
+
+- Finding [P2]: the prior EPFL appointment was visually nested inside the current-position card, and the footer did not provide a complete academic-profile route.
+- Fix: promoted EPFL to a standalone previous-appointment card and added Google Scholar, ORCID, and Semantic Scholar alongside the existing professional links. The Google Scholar destination is deliberately a precise SWIX author search because an exact personal Scholar profile ID could not be verified.
+- Post-fix evidence: desktop and mobile browser checks confirm three independent profile cards, six external profile links, exact viewport-width rendering, and no console warnings or errors. Rendered HTML tests assert the standalone appointment card and both new academic destinations.
 
 ## Focused Region Comparison
 

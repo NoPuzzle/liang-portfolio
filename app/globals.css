@@ -258,6 +258,7 @@ h1 em {
 
 .recent-panel,
 .signal-panel,
+.appointment-brief,
 .degree-brief {
   border: 1px solid var(--line-strong);
   background: rgb(18 34 50 / 86%);
@@ -319,7 +320,7 @@ h1 em {
 
 .profile-stack {
   display: grid;
-  grid-template-rows: minmax(0, 1fr) auto;
+  grid-template-rows: minmax(0, 1fr) auto auto;
   gap: 14px;
 }
 
@@ -373,34 +374,17 @@ h1 em {
   line-height: 1.58;
 }
 
-.previous-position {
-  display: grid;
-  gap: 6px;
-  margin-top: 14px;
-  padding-top: 13px;
-  border-top: 1px solid var(--line);
-}
-
-.previous-position span {
-  color: var(--subtle);
-  font-size: 7px;
-  letter-spacing: 0.12em;
-}
-
-.previous-position strong {
-  color: var(--ink);
-  font-size: 11px;
-  font-weight: 620;
-}
-
+.appointment-brief,
 .degree-brief {
   padding: 19px 24px 21px;
 }
 
+.appointment-brief .signal-code,
 .degree-brief .signal-code {
   margin-top: 15px;
 }
 
+.appointment-brief h2,
 .degree-brief h2 {
   margin: 0;
   font-size: clamp(21px, 1.7vw, 27px);
@@ -408,6 +392,7 @@ h1 em {
   letter-spacing: -0.04em;
 }
 
+.appointment-brief > p:last-child,
 .degree-brief > p:last-child {
   margin: 9px 0 0;
   color: #d0d9e2;
@@ -857,7 +842,8 @@ h1 em {
 
 .footer-links {
   display: grid;
-  gap: 13px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 13px 24px;
   font-size: 9px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -901,6 +887,10 @@ h1 em {
   .profile-stack {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
+  }
+
+  .profile-stack > .signal-panel {
+    grid-column: 1 / -1;
   }
 
   .profile-rail {

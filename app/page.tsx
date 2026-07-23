@@ -182,10 +182,19 @@ export default function Home() {
                   Low-resource language data management, AI data systems,
                   multilingual applications, and network-enabled intelligence.
                 </p>
-                <div className="previous-position">
-                  <span>PREVIOUS APPOINTMENT / EPFL · DIAS</span>
-                  <strong>Postdoctoral Researcher</strong>
+              </article>
+
+              <article className="appointment-brief" aria-label="Previous research appointment">
+                <div className="signal-head">
+                  <span>PREVIOUS APPOINTMENT</span>
+                  <span>EPFL / DIAS</span>
                 </div>
+                <p className="signal-code">DATA-INTENSIVE SYSTEMS</p>
+                <h2>Postdoctoral Researcher</h2>
+                <p>
+                  École polytechnique fédérale de Lausanne · Data-Intensive
+                  Applications and Systems Laboratory
+                </p>
               </article>
 
               <article className="degree-brief">
@@ -342,9 +351,11 @@ export default function Home() {
         </div>
         <div className="footer-links" aria-label="External profiles">
           <a href="https://www.linkedin.com/in/liang-liang-619631192" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a href="https://github.com/NoPuzzle" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://scholar.google.com/scholar?q=%22Liang+Liang%22+%22SWIX%22" target="_blank" rel="noreferrer">Google Scholar</a>
           <a href="https://orcid.org/0000-0002-4566-6178" target="_blank" rel="noreferrer">ORCID</a>
+          <a href="https://www.semanticscholar.org/author/2087343695" target="_blank" rel="noreferrer">Semantic Scholar</a>
           <a href="https://aiforgood.itu.int/speaker/liang-liang/" target="_blank" rel="noreferrer">ITU profile</a>
+          <a href="https://github.com/NoPuzzle" target="_blank" rel="noreferrer">GitHub</a>
         </div>
         <p>22.3193° N · 114.1694° E · HONG KONG</p>
       </footer>
