@@ -3,6 +3,7 @@
 - Source visual truth: `design-reference/midnight-systems-reference.png`
 - Supplemental visual target: `public/assets/academic-systems-background.png` (user-directed brighter academic revision)
 - Desktop implementation: `qa/redesign-desktop-1600-v1.png`
+- Latest content implementation: `qa/content-update-desktop-1280.jpg`
 - Desktop education region: `qa/redesign-education-1600-v1.png`
 - Desktop research region: `qa/redesign-research-1600-v1.png`
 - Mobile implementation: `qa/redesign-mobile-390-v1.png`
@@ -21,13 +22,13 @@
 No actionable P0, P1, or P2 differences remain.
 
 - Fonts and typography: Geist Mono now carries the complete interface, including display headlines, body copy, metadata, cards, and navigation. Reduced headline sizes, calmer tracking, and slightly taller line-height maintain readability while creating a research-dossier character.
-- Spacing and layout rhythm: the opening viewport now uses a compact academic identity header followed by a two-column dossier: recent activity on the left, current position and doctoral education on the right. Later research and trajectory sections preserve their asymmetric structure.
+- Spacing and layout rhythm: the opening viewport uses a compact academic identity header followed by a two-column dossier: linked recent activity on the left, current Innovation Research Institute role plus the prior EPFL appointment and doctoral education on the right. Later research and trajectory sections preserve their asymmetric structure.
 - Colors and visual tokens: the canvas is a brighter slate-blue drafting-paper field with dark translucent research cards, paper-white text, muted cyan annotations, and visible but restrained rules.
 - Image quality and asset fidelity: the generated project-owned raster background `public/assets/academic-systems-background.png` provides paper grain, fine coordinate grid, graph traces, and measurement marks without readable text or placeholder content.
-- Copy and content: the current EPFL/DIAS postdoctoral role, Imperial and EPFL research path, SWIX, LITune, HIRE, public engagements, service, and doctoral record render in the intended hierarchy. Graduate and undergraduate records are intentionally omitted. No private contact or address data is shown.
+- Copy and content: the current AI Frontier Technology Research Manager role at China Mobile (Hong Kong) Innovation Research Institute is supported by the official AI for Good speaker profile; EPFL is correctly presented as a prior postdoctoral appointment. The Imperial PhD, SWIX, LITune, HIRE, public engagements, and service remain visible. Graduate and undergraduate records are intentionally omitted. No private contact or address data is shown.
 - Responsiveness: at 390 × 844 the page width equals the viewport width, the hero wraps cleanly, the signal panel becomes a full-width block, and the doctoral card remains readable without horizontal overflow.
-- Interaction and accessibility: Education and Research navigation links scroll to their corresponding anchors; all three first-screen activity links plus publication and profile links have valid destinations and safe external-link attributes. Focus and reduced-motion styles are present.
-- Browser checks: the background asset is loaded and no console warnings or errors were observed during desktop and mobile interaction checks.
+- Interaction and accessibility: Education and Research navigation links scroll to their corresponding anchors; all three first-screen activity rows expose visible `OPEN ↗` affordances and point to official AI for Good pages with safe external-link attributes. Focus and reduced-motion styles are present.
+- Browser checks: the latest 1280 × 720 desktop render has no horizontal overflow, the background and Geist Mono load, and the new work history plus all three official activity destinations render correctly. Existing 1600 × 1000 and 390 × 844 regression captures remain valid for the unchanged responsive structure.
 
 ## Comparison History
 
@@ -46,8 +47,8 @@ No actionable P0, P1, or P2 differences remain.
 ### Iteration 3
 
 - Finding [P0]: the current-role panel incorrectly identified Liang Liang as working at CMHK.
-- Fix: removed every current-employment reference to CMHK and aligned the profile with the user-confirmed EPFL/DIAS postdoctoral role, research focus, metadata, profile rail, and trajectory.
-- Post-fix evidence: refreshed `qa/redesign-desktop-1600-v1.png`, `qa/redesign-mobile-390-v1.png`, and `qa/redesign-comparison-1600-v2.png`; browser text checks contain no `China Mobile` or `CMHK` strings.
+- Fix: removed the unsupported CMHK employer label and retained the then-confirmed EPFL/DIAS record. Iteration 6 later introduced the distinct Innovation Research Institute using an official 2026 source.
+- Post-fix evidence: refreshed `qa/redesign-desktop-1600-v1.png`, `qa/redesign-mobile-390-v1.png`, and `qa/redesign-comparison-1600-v2.png`; the incorrect `CMHK` acronym remains absent.
 
 ### Iteration 4
 
@@ -60,6 +61,13 @@ No actionable P0, P1, or P2 differences remain.
 - Finding [P1]: the portfolio remained too dark and corporate, and recent activity appeared too late in the reading order.
 - Fix: replaced the background with a brighter academic drafting-paper texture, switched the complete interface to Geist Mono, and rebuilt the opening viewport so activity leads on the left while position and doctoral education are grouped on the right.
 - Post-fix evidence: refreshed desktop, mobile, and side-by-side comparison screenshots verify the new first-screen hierarchy and academic visual system.
+
+### Iteration 6
+
+- Finding [P0]: the first screen omitted the current Innovation Research Institute role and still presented EPFL as the active position. Activity rows were clickable but did not visually advertise their destinations.
+- Fix: used the official AI for Good speaker and programme pages to identify the current role as AI Frontier Technology Research Manager at China Mobile (Hong Kong) Innovation Research Institute, moved EPFL to previous appointment, added both confirmed July 2026 sessions, and gave each activity a visible `OPEN ↗` affordance.
+- Sources: `https://aiforgood.itu.int/speaker/liang-liang/`, `https://aiforgood.itu.int/event/advancing-ai-in-networks/`, and `https://aiforgood.itu.int/event/innovate-for-impact/`.
+- Post-fix evidence: `qa/content-update-desktop-1280.jpg`; rendered HTML tests assert the current role, organization, prior EPFL appointment, and all three official destinations.
 
 ## Focused Region Comparison
 

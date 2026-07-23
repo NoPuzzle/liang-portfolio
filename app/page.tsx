@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Liang Liang — Data-Intensive Systems Research",
   description:
-    "Liang Liang is a postdoctoral researcher at EPFL working across learned indexes, vector databases, DB4AI, stream processing, and high-performance computing.",
+    "Liang Liang is an AI Frontier Technology Research Manager at China Mobile (Hong Kong) Innovation Research Institute, working across multilingual AI, data systems, and network-enabled intelligence.",
 };
 
 const education = {
@@ -48,9 +48,14 @@ const research = [
 const trajectory = [
   {
     marker: "NOW",
-    title: "Postdoctoral researcher",
+    title: "AI Frontier Technology Research Manager",
     organization:
-      "EPFL · Data-Intensive Applications and Systems Laboratory",
+      "China Mobile (Hong Kong) Innovation Research Institute",
+  },
+  {
+    marker: "POSTDOC",
+    title: "Data-intensive systems research",
+    organization: "EPFL · Data-Intensive Applications and Systems Laboratory",
   },
   {
     marker: "PHD",
@@ -63,20 +68,20 @@ const engagements = [
   {
     marker: "2026.07",
     title: "AI for Good Global Summit 2026",
-    detail: "Speaker · Geneva",
+    detail: "Official speaker profile · Geneva",
     href: "https://aiforgood.itu.int/speaker/liang-liang/",
   },
   {
-    marker: "ITU—T",
-    title: "SG13 · Advancing AI in Networks",
-    detail: "Speaker and panelist · Standards and industry dialogue",
-    href: "https://aiforgood.itu.int/event/advancing-ai-in-networks/?topic=710",
+    marker: "2026.07.10",
+    title: "Advancing AI in Networks",
+    detail: "Speaker and panelist · ITU-T SG13",
+    href: "https://aiforgood.itu.int/event/advancing-ai-in-networks/",
   },
   {
-    marker: "2024",
-    title: "ACM SIGMOD / PODS",
-    detail: "SWIX · Santiago",
-    href: "https://doi.org/10.1145/3639296",
+    marker: "2026.07.07",
+    title: "Silk Road Intelligence",
+    detail: "Speaker · Innovate for Impact",
+    href: "https://aiforgood.itu.int/event/innovate-for-impact/",
   },
 ];
 
@@ -105,14 +110,14 @@ export default function Home() {
           <a href="#trajectory">Trajectory</a>
         </nav>
 
-        <span className="status">EPFL · RESEARCH ACTIVE</span>
+        <span className="status">INNOVATION INSTITUTE · ACTIVE</span>
       </header>
 
       <main>
         <section className="hero shell" id="profile" aria-labelledby="hero-title">
           <div className="identity-block">
             <div className="hero-copy">
-              <p className="eyebrow">RESEARCH DOSSIER / EPFL / 2026</p>
+              <p className="eyebrow">RESEARCH DOSSIER / HONG KONG / 2026</p>
               <h1 id="hero-title">
                 <span>Liang Liang</span>
                 Data-intensive systems,
@@ -123,8 +128,8 @@ export default function Home() {
             <div className="identity-summary">
               <p className="identity-label">ABSTRACT / 001</p>
               <p className="hero-intro">
-                I work on data-intensive systems—from learned indexes and stream
-                processing to vector databases, DB4AI, and scientific workflows.
+                I work across low-resource language data, multilingual AI,
+                data-intensive systems, and deployment-oriented AI services.
               </p>
               <div className="hero-actions">
                 <a href="#research">Explore selected research</a>
@@ -156,28 +161,31 @@ export default function Home() {
                       <strong>{item.title}</strong>
                       <small>{item.detail}</small>
                     </span>
+                    <span className="activity-link">OPEN ↗</span>
                   </a>
                 ))}
               </div>
             </section>
 
-            <aside className="profile-stack" aria-label="Position and doctoral education">
+            <aside className="profile-stack" aria-label="Recent work and doctoral education">
               <article className="signal-panel" aria-label="Current research profile">
                 <div className="signal-head">
                   <span>CURRENT POSITION</span>
                   <span>2026 / ACTIVE</span>
                 </div>
-                <p className="signal-code">EPFL / DIAS</p>
-                <h2>Postdoctoral Researcher</h2>
+                <p className="signal-code">INNOVATION INSTITUTE / AI</p>
+                <h2>AI Frontier Technology Research Manager</h2>
                 <p className="signal-org">
-                  École polytechnique fédérale de Lausanne
-                  <br />
-                  Data-Intensive Applications and Systems Laboratory
+                  China Mobile (Hong Kong) Innovation Research Institute
                 </p>
                 <p className="signal-bio">
-                  Learned indexes, vector databases, DB4AI, stream processing,
-                  and high-performance scientific workflows.
+                  Low-resource language data management, AI data systems,
+                  multilingual applications, and network-enabled intelligence.
                 </p>
+                <div className="previous-position">
+                  <span>PREVIOUS APPOINTMENT / EPFL · DIAS</span>
+                  <strong>Postdoctoral Researcher</strong>
+                </div>
               </article>
 
               <article className="degree-brief">
@@ -280,7 +288,7 @@ export default function Home() {
               <p>FIELD LOG</p>
             </div>
             <div>
-              <p className="section-kicker">DATA-INTENSIVE SYSTEMS</p>
+              <p className="section-kicker">AI AND DATA SYSTEMS</p>
               <h2 id="trajectory-title">
                 A trajectory through
                 <br />
@@ -288,8 +296,8 @@ export default function Home() {
               </h2>
             </div>
             <p className="section-note">
-              Academic depth across data systems, HPC, and learned indexes now
-              converges in an active research programme at EPFL.
+              Systems research at Imperial and EPFL now informs applied AI work
+              across multilingual data, intelligent services, and networks.
             </p>
           </div>
 

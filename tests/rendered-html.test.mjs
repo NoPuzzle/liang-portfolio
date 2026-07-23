@@ -35,9 +35,11 @@ test("server-renders the portfolio content and metadata", async () => {
   );
   assert.match(html, /Data-intensive systems,/);
   assert.match(html, /Recent activity/);
+  assert.match(html, /AI Frontier Technology Research Manager/);
+  assert.match(html, /China Mobile \(Hong Kong\) Innovation Research Institute/);
   assert.match(html, /Postdoctoral Researcher/);
-  assert.match(html, /EPFL \/ DIAS/);
-  assert.doesNotMatch(html, /China Mobile|CMHK/);
+  assert.match(html, /EPFL · DIAS/);
+  assert.doesNotMatch(html, /\bCMHK\b/);
   assert.match(html, /Imperial College London/);
   assert.match(html, /PhD in Computing/);
   assert.doesNotMatch(
@@ -48,6 +50,10 @@ test("server-renders the portfolio content and metadata", async () => {
   assert.match(html, /LITune/);
   assert.match(html, /HIRE/);
   assert.match(html, /AI for Good Global Summit/);
+  assert.match(html, /https:\/\/aiforgood\.itu\.int\/speaker\/liang-liang\//);
+  assert.match(html, /https:\/\/aiforgood\.itu\.int\/event\/advancing-ai-in-networks\//);
+  assert.match(html, /https:\/\/aiforgood\.itu\.int\/event\/innovate-for-impact\//);
+  assert.match(html, /OPEN ↗/);
   assert.match(html, /PVLDB \/ VLDB 2026 Reviewer/);
   assert.match(html, /https:\/\/github\.com\/NoPuzzle/);
   assert.doesNotMatch(html, /Your site is taking shape|codex-preview/);

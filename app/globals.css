@@ -291,13 +291,30 @@ h1 em {
 
 .front-activity-list .activity-item {
   min-height: 76px;
-  grid-template-columns: 100px 1fr;
+  grid-template-columns: 100px minmax(0, 1fr) auto;
   align-items: center;
   padding: 12px 0;
 }
 
 .front-activity-list .activity-item strong {
   font-size: 15px;
+}
+
+.activity-link {
+  justify-self: end;
+  padding: 7px 9px;
+  border: 1px solid var(--line);
+  color: var(--cyan-soft);
+  font-size: 7px;
+  letter-spacing: 0.12em;
+  transition: border-color 170ms ease, background 170ms ease, color 170ms ease;
+}
+
+.activity-item:hover .activity-link,
+.activity-item:focus-visible .activity-link {
+  border-color: var(--cyan);
+  color: var(--ink);
+  background: rgb(141 227 237 / 10%);
 }
 
 .profile-stack {
@@ -333,7 +350,7 @@ h1 em {
 
 .signal-panel h2 {
   margin: 0;
-  font-size: clamp(22px, 1.8vw, 29px);
+  font-size: clamp(20px, 1.55vw, 25px);
   letter-spacing: -0.04em;
   line-height: 1.08;
 }
@@ -354,6 +371,26 @@ h1 em {
   color: #c2cdd8;
   font-size: 11px;
   line-height: 1.58;
+}
+
+.previous-position {
+  display: grid;
+  gap: 6px;
+  margin-top: 14px;
+  padding-top: 13px;
+  border-top: 1px solid var(--line);
+}
+
+.previous-position span {
+  color: var(--subtle);
+  font-size: 7px;
+  letter-spacing: 0.12em;
+}
+
+.previous-position strong {
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 620;
 }
 
 .degree-brief {
@@ -1007,6 +1044,12 @@ h1 em {
     min-height: 104px;
     grid-template-columns: 72px 1fr;
     gap: 14px;
+  }
+
+  .front-activity-list .activity-link {
+    grid-column: 2;
+    justify-self: start;
+    margin-top: -4px;
   }
 
   .front-activity-list .activity-item strong {
