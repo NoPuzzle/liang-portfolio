@@ -1,6 +1,7 @@
 # Design QA — Portfolio Redesign
 
 - Source visual truth: `design-reference/midnight-systems-reference.png`
+- Supplemental visual target: `public/assets/academic-systems-background.png` (user-directed brighter academic revision)
 - Desktop implementation: `qa/redesign-desktop-1600-v1.png`
 - Desktop education region: `qa/redesign-education-1600-v1.png`
 - Desktop research region: `qa/redesign-research-1600-v1.png`
@@ -10,20 +11,22 @@
 - Desktop viewport: 1600 × 1000 CSS px at device scale factor 1
 - Mobile viewport: 390 × 844 CSS px at device scale factor 1
 - Source pixels: 1600 × 1000
+- Implementation pixels: 1600 × 1000 desktop and 390 × 844 mobile at device scale factor 1
+- Academic background pixels: 1586 × 992
 - Comparison normalization: source and implementation are shown together at equal 800 × 500 dimensions in one 1600 × 1000 canvas
-- State: homepage, dark theme, no overlays
+- State: homepage, slate academic theme, no overlays
 
 ## Findings
 
 No actionable P0, P1, or P2 differences remain.
 
-- Fonts and typography: the redesigned display headline, oversized section statements, monospaced metadata, tight leading, and muted name treatment preserve the selected midnight-systems character while creating a stronger editorial hierarchy.
-- Spacing and layout rhythm: the hero keeps the source's asymmetric title-and-signal-panel composition. The featured doctoral record, offset research grid, and trajectory timeline use deliberate negative space without leaving content visually disconnected.
-- Colors and visual tokens: the near-black canvas, deep navy surfaces, cyan signal color, restrained cobalt accents, and low-contrast borders remain consistent across every section and pass visual contrast checks.
-- Image quality and asset fidelity: the project-owned raster background `public/assets/midnight-systems-background.png` loads sharply, has no placeholder state, and supports the technical grid and orbital motif without overpowering the text.
+- Fonts and typography: Geist Mono now carries the complete interface, including display headlines, body copy, metadata, cards, and navigation. Reduced headline sizes, calmer tracking, and slightly taller line-height maintain readability while creating a research-dossier character.
+- Spacing and layout rhythm: the opening viewport now uses a compact academic identity header followed by a two-column dossier: recent activity on the left, current position and doctoral education on the right. Later research and trajectory sections preserve their asymmetric structure.
+- Colors and visual tokens: the canvas is a brighter slate-blue drafting-paper field with dark translucent research cards, paper-white text, muted cyan annotations, and visible but restrained rules.
+- Image quality and asset fidelity: the generated project-owned raster background `public/assets/academic-systems-background.png` provides paper grain, fine coordinate grid, graph traces, and measurement marks without readable text or placeholder content.
 - Copy and content: the current EPFL/DIAS postdoctoral role, Imperial and EPFL research path, SWIX, LITune, HIRE, public engagements, service, and doctoral record render in the intended hierarchy. Graduate and undergraduate records are intentionally omitted. No private contact or address data is shown.
 - Responsiveness: at 390 × 844 the page width equals the viewport width, the hero wraps cleanly, the signal panel becomes a full-width block, and the doctoral card remains readable without horizontal overflow.
-- Interaction and accessibility: Education and Trajectory navigation links scroll to their corresponding anchors; all publication, engagement, and profile links have valid destinations and safe external-link attributes. Focus and reduced-motion styles are present.
+- Interaction and accessibility: Education and Research navigation links scroll to their corresponding anchors; all three first-screen activity links plus publication and profile links have valid destinations and safe external-link attributes. Focus and reduced-motion styles are present.
 - Browser checks: the background asset is loaded and no console warnings or errors were observed during desktop and mobile interaction checks.
 
 ## Comparison History
@@ -52,6 +55,12 @@ No actionable P0, P1, or P2 differences remain.
 - Fix: removed both master's records and the undergraduate record, changed the education section to one featured doctoral record, and removed graduate institutions from the career trajectory.
 - Post-fix evidence: refreshed desktop and mobile education screenshots confirm that only the Imperial College London PhD is displayed.
 
+### Iteration 5
+
+- Finding [P1]: the portfolio remained too dark and corporate, and recent activity appeared too late in the reading order.
+- Fix: replaced the background with a brighter academic drafting-paper texture, switched the complete interface to Geist Mono, and rebuilt the opening viewport so activity leads on the left while position and doctoral education are grouped on the right.
+- Post-fix evidence: refreshed desktop, mobile, and side-by-side comparison screenshots verify the new first-screen hierarchy and academic visual system.
+
 ## Focused Region Comparison
 
 - Hero and signal panel: checked headline line breaks, name treatment, metadata scale, border weight, role hierarchy, statistics, and background arc treatment against the reference.
@@ -60,7 +69,7 @@ No actionable P0, P1, or P2 differences remain.
 
 ## Follow-up Polish
 
-- [P3] The implementation carries more verified content than the source crop, so later sections intentionally extend the system rather than reproduce the reference's exact first-screen information density.
+- [P3] The implementation is intentionally lighter than the original midnight reference. This is a user-directed change; the academic grid, rule weight, and cyan annotation system preserve continuity while the new slate field improves openness.
 
 ## Implementation Checklist
 

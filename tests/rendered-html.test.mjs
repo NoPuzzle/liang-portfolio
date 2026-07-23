@@ -33,7 +33,8 @@ test("server-renders the portfolio content and metadata", async () => {
     html,
     /<title>Liang Liang — Data-Intensive Systems Research<\/title>/i,
   );
-  assert.match(html, /Frontier AI,/);
+  assert.match(html, /Data-intensive systems,/);
+  assert.match(html, /Recent activity/);
   assert.match(html, /Postdoctoral Researcher/);
   assert.match(html, /EPFL \/ DIAS/);
   assert.doesNotMatch(html, /China Mobile|CMHK/);
@@ -63,12 +64,15 @@ test("keeps the selected visual and project assets durable", async () => {
   assert.match(page, /midnight|Postdoctoral Researcher|Data-Intensive Systems/i);
   assert.doesNotMatch(page, /SkeletonPreview/);
   assert.match(layout, /Liang Liang — Data-Intensive Systems Research/);
-  assert.match(css, /midnight-systems-background\.png/);
+  assert.match(layout, /academic-systems-background\.png/);
+  assert.match(css, /academic-systems-background\.png/);
+  assert.match(css, /font-family: var\(--mono\)/);
   assert.match(css, /@media \(max-width: 720px\)/);
   assert.match(css, /prefers-reduced-motion: reduce/);
 
   await Promise.all([
     access(new URL("../public/assets/midnight-systems-background.png", import.meta.url)),
+    access(new URL("../public/assets/academic-systems-background.png", import.meta.url)),
     access(new URL("../design-reference/midnight-systems-reference.png", import.meta.url)),
   ]);
 });

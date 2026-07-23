@@ -110,76 +110,86 @@ export default function Home() {
 
       <main>
         <section className="hero shell" id="profile" aria-labelledby="hero-title">
-          <div className="hero-copy">
-            <p className="eyebrow">POSTDOCTORAL RESEARCHER / EPFL</p>
-            <h1 id="hero-title">
-              <span>Liang Liang</span>
-              Frontier AI,
-              <br />
-              engineered for
-              <br />
-              <em>the field.</em>
-            </h1>
-            <p className="hero-intro">
-              I work on data-intensive systems—from learned indexes and stream
-              processing to vector databases, DB4AI, and scientific workflows.
-            </p>
-            <div className="hero-actions">
-              <a href="#research">Explore selected research</a>
-              <a href="#education">Trace the education path</a>
+          <div className="identity-block">
+            <div className="hero-copy">
+              <p className="eyebrow">RESEARCH DOSSIER / EPFL / 2026</p>
+              <h1 id="hero-title">
+                <span>Liang Liang</span>
+                Data-intensive systems,
+                <br />
+                <em>at scale.</em>
+              </h1>
+            </div>
+            <div className="identity-summary">
+              <p className="identity-label">ABSTRACT / 001</p>
+              <p className="hero-intro">
+                I work on data-intensive systems—from learned indexes and stream
+                processing to vector databases, DB4AI, and scientific workflows.
+              </p>
+              <div className="hero-actions">
+                <a href="#research">Explore selected research</a>
+                <a href="#education">View doctoral record</a>
+              </div>
             </div>
           </div>
 
-          <aside className="signal-panel" aria-label="Current research profile">
-            <div className="signal-head">
-              <span>CURRENT SIGNAL</span>
-              <span>2026 / LIVE</span>
-            </div>
-            <p className="signal-code">EPFL / DIAS</p>
-            <h2>Postdoctoral Researcher</h2>
-            <p className="signal-org">
-              École polytechnique fédérale de Lausanne
-              <br />
-              Data-Intensive Applications and Systems Laboratory
-            </p>
-            <p className="signal-bio">
-              Researching learned indexes, vector databases, and DB4AI, with a
-              foundation in stream processing, scientific workflows, and
-              high-performance computing.
-            </p>
-            <dl className="signal-metrics">
-              <div>
-                <dt>03</dt>
-                <dd>Selected systems</dd>
+          <div className="front-grid">
+            <section className="recent-panel" aria-labelledby="recent-title">
+              <div className="archive-heading">
+                <div>
+                  <span>FIELD NOTES / LATEST</span>
+                  <h2 id="recent-title">Recent activity</h2>
+                </div>
+                <span>03 ENTRIES</span>
               </div>
-              <div>
-                <dt>01</dt>
-                <dd>Doctoral record</dd>
+              <div className="front-activity-list">
+                {engagements.map((item) => (
+                  <a
+                    className="activity-item"
+                    href={item.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    key={`${item.marker}-${item.title}`}
+                  >
+                    <span>{item.marker}</span>
+                    <span>
+                      <strong>{item.title}</strong>
+                      <small>{item.detail}</small>
+                    </span>
+                  </a>
+                ))}
               </div>
-              <div>
-                <dt>DIAS</dt>
-                <dd>Research laboratory</dd>
-              </div>
-            </dl>
-          </aside>
-        </section>
+            </section>
 
-        <section className="profile-rail shell" aria-label="Profile highlights">
-          <div>
-            <span>01 / CURRENT</span>
-            <strong>EPFL · DIAS</strong>
-          </div>
-          <div>
-            <span>02 / FOCUS</span>
-            <strong>Learned indexes &amp; DB4AI</strong>
-          </div>
-          <div>
-            <span>03 / SYSTEMS</span>
-            <strong>Vector databases at scale</strong>
-          </div>
-          <div>
-            <span>04 / PATH</span>
-            <strong>Imperial → EPFL</strong>
+            <aside className="profile-stack" aria-label="Position and doctoral education">
+              <article className="signal-panel" aria-label="Current research profile">
+                <div className="signal-head">
+                  <span>CURRENT POSITION</span>
+                  <span>2026 / ACTIVE</span>
+                </div>
+                <p className="signal-code">EPFL / DIAS</p>
+                <h2>Postdoctoral Researcher</h2>
+                <p className="signal-org">
+                  École polytechnique fédérale de Lausanne
+                  <br />
+                  Data-Intensive Applications and Systems Laboratory
+                </p>
+                <p className="signal-bio">
+                  Learned indexes, vector databases, DB4AI, stream processing,
+                  and high-performance scientific workflows.
+                </p>
+              </article>
+
+              <article className="degree-brief">
+                <div className="signal-head">
+                  <span>DOCTORAL EDUCATION</span>
+                  <span>{education.period}</span>
+                </div>
+                <p className="signal-code">IMPERIAL / COMPUTING</p>
+                <h2>{education.degree}</h2>
+                <p>{education.school}</p>
+              </article>
+            </aside>
           </div>
         </section>
 
@@ -298,30 +308,6 @@ export default function Home() {
             </div>
 
             <div className="activity-column">
-              <section aria-labelledby="engagements-title">
-                <div className="subsection-heading">
-                  <h3 id="engagements-title">Recent engagements</h3>
-                  <span>FIELD NOTES</span>
-                </div>
-                <div className="activity-list">
-                  {engagements.map((item) => (
-                    <a
-                      className="activity-item"
-                      href={item.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      key={`${item.marker}-${item.title}`}
-                    >
-                      <span>{item.marker}</span>
-                      <span>
-                        <strong>{item.title}</strong>
-                        <small>{item.detail}</small>
-                      </span>
-                    </a>
-                  ))}
-                </div>
-              </section>
-
               <section aria-labelledby="service-title">
                 <div className="subsection-heading">
                   <h3 id="service-title">Academic service</h3>
