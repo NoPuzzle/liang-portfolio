@@ -81,6 +81,12 @@ No actionable P0, P1, or P2 differences remain.
 - Fix: moved the image into a fixed, non-interactive `body::before` viewport layer with a `100svh` minimum height, kept the page overlay above it, and removed `background-attachment` entirely.
 - Post-fix evidence: regression tests require the fixed viewport layer and reject any reintroduction of `background-attachment`.
 
+### Iteration 9
+
+- Finding [P1]: the fixed layer removed mobile blur, but `cover` still cropped the landscape artwork to its quiet center and pushed the mathematical notation, geometry, plots, and coordinate axes outside the portrait viewport.
+- Fix: created a dedicated portrait academic-blueprint background with visible axes, curves, geometric constructions, and mathematical notation arranged inside mobile-safe margins while preserving a quiet center for page copy.
+- Post-fix evidence: the mobile media query selects `public/assets/academic-systems-background-mobile.png`; regression tests require both the CSS reference and durable project-owned asset.
+
 ## Focused Region Comparison
 
 - Hero and signal panel: checked headline line breaks, name treatment, metadata scale, border weight, role hierarchy, statistics, and background arc treatment against the reference.

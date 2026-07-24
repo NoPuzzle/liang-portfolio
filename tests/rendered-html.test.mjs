@@ -77,6 +77,7 @@ test("keeps the selected visual and project assets durable", async () => {
   assert.match(css, /academic-systems-background\.png/);
   assert.match(css, /body::before\s*\{[\s\S]*position:\s*fixed;/);
   assert.match(css, /body::before\s*\{[\s\S]*min-height:\s*100svh;/);
+  assert.match(css, /academic-systems-background-mobile\.png/);
   assert.doesNotMatch(css, /background-attachment:/);
   assert.match(css, /font-family: var\(--mono\)/);
   assert.match(css, /@media \(max-width: 720px\)/);
@@ -85,6 +86,7 @@ test("keeps the selected visual and project assets durable", async () => {
   await Promise.all([
     access(new URL("../public/assets/midnight-systems-background.png", import.meta.url)),
     access(new URL("../public/assets/academic-systems-background.png", import.meta.url)),
+    access(new URL("../public/assets/academic-systems-background-mobile.png", import.meta.url)),
     access(new URL("../design-reference/midnight-systems-reference.png", import.meta.url)),
   ]);
 });

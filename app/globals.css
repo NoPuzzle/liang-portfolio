@@ -952,6 +952,10 @@ h1 em {
 }
 
 @media (max-width: 720px) {
+  body::before {
+    background-image: url("/assets/academic-systems-background-mobile.png");
+  }
+
   .shell {
     width: min(100% - 28px, 560px);
   }
