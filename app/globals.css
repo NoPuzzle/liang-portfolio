@@ -43,7 +43,7 @@ body::before {
   z-index: 0;
   min-height: 100svh;
   background-color: var(--canvas);
-  background-image: url("/assets/academic-systems-background.png");
+  background-image: var(--academic-background-desktop);
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
@@ -953,7 +953,7 @@ h1 em {
 
 @media (max-width: 720px) {
   body::before {
-    background-image: url("/assets/academic-systems-background-mobile.png");
+    background-image: var(--academic-background-mobile);
   }
 
   .shell {

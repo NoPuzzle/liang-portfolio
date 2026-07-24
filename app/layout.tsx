@@ -29,8 +29,9 @@ export default function RootLayout({
       <body
         className={`${geistMono.variable} antialiased`}
         style={{
-          backgroundImage: `url("${basePath}/assets/academic-systems-background.png")`,
-        }}
+          "--academic-background-desktop": `url("${basePath}/assets/academic-systems-background.png")`,
+          "--academic-background-mobile": `url("${basePath}/assets/academic-systems-background-mobile.png")`,
+        } as React.CSSProperties}
       >
         {children}
       </body>

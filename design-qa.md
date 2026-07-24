@@ -87,6 +87,12 @@ No actionable P0, P1, or P2 differences remain.
 - Fix: created a dedicated portrait academic-blueprint background with visible axes, curves, geometric constructions, and mathematical notation arranged inside mobile-safe margins while preserving a quiet center for page copy.
 - Post-fix evidence: the mobile media query selects `public/assets/academic-systems-background-mobile.png`; regression tests require both the CSS reference and durable project-owned asset.
 
+### Iteration 10
+
+- Finding [P0]: the fixed pseudo-element requested `/assets/...` from the GitHub Pages domain root, while the deployed assets live under `/liang-portfolio/assets/...`. Both background requests returned 404, and the pseudo-element's solid fallback obscured the correctly prefixed body background.
+- Fix: moved the desktop and mobile asset URLs into base-path-aware CSS custom properties injected by the root layout; the pseudo-element now consumes those variables in both GitHub Pages and root-hosted deployments.
+- Post-fix evidence: regression tests reject root-absolute asset URLs in the stylesheet and require both base-path-aware background variables.
+
 ## Focused Region Comparison
 
 - Hero and signal panel: checked headline line breaks, name treatment, metadata scale, border weight, role hierarchy, statistics, and background arc treatment against the reference.

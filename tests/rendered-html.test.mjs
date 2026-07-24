@@ -74,10 +74,13 @@ test("keeps the selected visual and project assets durable", async () => {
   assert.doesNotMatch(page, /SkeletonPreview/);
   assert.match(layout, /Liang Liang — Data-Intensive Systems Research/);
   assert.match(layout, /academic-systems-background\.png/);
-  assert.match(css, /academic-systems-background\.png/);
+  assert.match(layout, /academic-systems-background-mobile\.png/);
+  assert.match(layout, /NEXT_PUBLIC_BASE_PATH/);
   assert.match(css, /body::before\s*\{[\s\S]*position:\s*fixed;/);
   assert.match(css, /body::before\s*\{[\s\S]*min-height:\s*100svh;/);
-  assert.match(css, /academic-systems-background-mobile\.png/);
+  assert.match(css, /var\(--academic-background-desktop\)/);
+  assert.match(css, /var\(--academic-background-mobile\)/);
+  assert.doesNotMatch(css, /url\(["']?\/assets\//);
   assert.doesNotMatch(css, /background-attachment:/);
   assert.match(css, /font-family: var\(--mono\)/);
   assert.match(css, /@media \(max-width: 720px\)/);
