@@ -75,6 +75,9 @@ test("keeps the selected visual and project assets durable", async () => {
   assert.match(layout, /Liang Liang — Data-Intensive Systems Research/);
   assert.match(layout, /academic-systems-background\.png/);
   assert.match(css, /academic-systems-background\.png/);
+  assert.match(css, /body::before\s*\{[\s\S]*position:\s*fixed;/);
+  assert.match(css, /body::before\s*\{[\s\S]*min-height:\s*100svh;/);
+  assert.doesNotMatch(css, /background-attachment:/);
   assert.match(css, /font-family: var\(--mono\)/);
   assert.match(css, /@media \(max-width: 720px\)/);
   assert.match(css, /prefers-reduced-motion: reduce/);

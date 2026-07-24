@@ -31,14 +31,23 @@ body {
   margin: 0;
   min-width: 320px;
   color: var(--ink);
+  background: var(--canvas);
+  font-family: var(--font-geist-mono), "SFMono-Regular", Consolas, monospace;
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  min-height: 100svh;
   background-color: var(--canvas);
   background-image: url("/assets/academic-systems-background.png");
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed;
-  font-family: var(--font-geist-mono), "SFMono-Regular", Consolas, monospace;
-  -webkit-font-smoothing: antialiased;
+  pointer-events: none;
 }
 
 a {
@@ -52,6 +61,8 @@ a {
 }
 
 .site {
+  position: relative;
+  z-index: 1;
   min-height: 100vh;
   background: rgb(9 18 28 / 38%);
 }
@@ -941,10 +952,6 @@ h1 em {
 }
 
 @media (max-width: 720px) {
-  body {
-    background-attachment: scroll;
-  }
-
   .shell {
     width: min(100% - 28px, 560px);
   }

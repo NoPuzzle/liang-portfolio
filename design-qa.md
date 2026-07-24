@@ -26,7 +26,7 @@ No actionable P0, P1, or P2 differences remain.
 - Colors and visual tokens: the canvas is a brighter slate-blue drafting-paper field with dark translucent research cards, paper-white text, muted cyan annotations, and visible but restrained rules.
 - Image quality and asset fidelity: the generated project-owned raster background `public/assets/academic-systems-background.png` provides paper grain, fine coordinate grid, graph traces, and measurement marks without readable text or placeholder content.
 - Copy and content: the current AI Frontier Technology Research Manager role at China Mobile (Hong Kong) Innovation Research Institute is supported by the official AI for Good speaker profile; EPFL is correctly presented as a separate prior postdoctoral appointment. The Imperial PhD, SWIX, LITune, HIRE, public engagements, and service remain visible. Graduate and undergraduate records are intentionally omitted. No private contact or address data is shown.
-- Responsiveness: at 390 × 844 the page width equals the viewport width, the hero wraps cleanly, the three profile cards stack independently, and the two-column external-profile link grid remains readable without horizontal overflow.
+- Responsiveness: at 390 × 844 the page width equals the viewport width, the hero wraps cleanly, the three profile cards stack independently, and the two-column external-profile link grid remains readable without horizontal overflow. The academic background now renders in a fixed viewport layer rather than scaling against the full mobile document height.
 - Interaction and accessibility: Education and Research navigation links scroll to their corresponding anchors; all three first-screen activity rows expose visible `OPEN ↗` affordances and point to official AI for Good pages with safe external-link attributes. The footer adds LinkedIn, a precise Google Scholar publication search, ORCID, a verified Semantic Scholar author record, ITU profile, and GitHub. Focus and reduced-motion styles are present.
 - Browser checks: the latest 1280 × 800 desktop and 390 × 844 mobile renders have no horizontal overflow or browser warnings/errors. DOM inspection confirms that current position, previous appointment, and doctoral education are sibling cards rather than nested content.
 
@@ -74,6 +74,12 @@ No actionable P0, P1, or P2 differences remain.
 - Finding [P2]: the prior EPFL appointment was visually nested inside the current-position card, and the footer did not provide a complete academic-profile route.
 - Fix: promoted EPFL to a standalone previous-appointment card and added Google Scholar, ORCID, and Semantic Scholar alongside the existing professional links. The Google Scholar destination is deliberately a precise SWIX author search because an exact personal Scholar profile ID could not be verified.
 - Post-fix evidence: desktop and mobile browser checks confirm three independent profile cards, six external profile links, exact viewport-width rendering, and no console warnings or errors. Rendered HTML tests assert the standalone appointment card and both new academic destinations.
+
+### Iteration 8
+
+- Finding [P1]: on mobile Safari, changing the body background attachment to scrolling caused the landscape background image to size against the full document height. The result was an excessively enlarged, blurred crop behind the page.
+- Fix: moved the image into a fixed, non-interactive `body::before` viewport layer with a `100svh` minimum height, kept the page overlay above it, and removed `background-attachment` entirely.
+- Post-fix evidence: regression tests require the fixed viewport layer and reject any reintroduction of `background-attachment`.
 
 ## Focused Region Comparison
 
