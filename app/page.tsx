@@ -1,17 +1,10 @@
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Liang Liang — Data-Intensive Systems Research",
-  description:
-    "Liang Liang is an AI Frontier Technology Research Manager at China Mobile (Hong Kong) Innovation Research Institute, working across multilingual AI, data systems, and network-enabled intelligence.",
-};
-
 const education = {
   code: "D.01",
-  period: "2020—2024",
+  period: "2020.10—2024.10",
   degree: "PhD in Computing",
   school: "Imperial College London",
-  detail: "Stream data processing, system optimization, and learned indexes.",
+  detail:
+    "Stream data processing, system optimization, and learned indexes. Supervisor: Thomas Heinis.",
   note: "United Kingdom",
 };
 
@@ -47,20 +40,21 @@ const research = [
 
 const trajectory = [
   {
-    marker: "NOW",
+    marker: "SINCE 2026.01.05",
     title: "AI Frontier Technology Research Manager",
     organization:
-      "China Mobile (Hong Kong) Innovation Research Institute",
+      "China Mobile (Hong Kong) Innovation Research Institute · Innovation and R&D",
   },
   {
-    marker: "POSTDOC",
+    marker: "2025.01—2025.12",
     title: "Data-intensive systems research",
-    organization: "EPFL · Data-Intensive Applications and Systems Laboratory",
+    organization:
+      "EPFL · Data-Intensive Applications and Systems Laboratory · Anastasia Ailamaki",
   },
   {
-    marker: "PHD",
+    marker: "2020.10—2024.10",
     title: "Stream processing and learned indexes",
-    organization: "Imperial College London · Computing",
+    organization: "Imperial College London · Computing · Thomas Heinis",
   },
 ];
 
@@ -74,13 +68,13 @@ const engagements = [
   {
     marker: "2026.07.10",
     title: "Advancing AI in Networks",
-    detail: "Speaker and panelist · ITU-T SG13",
+    detail: "Talk and panel · Future networks / ITU-T SG13",
     href: "https://aiforgood.itu.int/event/advancing-ai-in-networks/",
   },
   {
     marker: "2026.07.07",
     title: "Silk Road Intelligence",
-    detail: "Speaker · Innovate for Impact",
+    detail: "Selected case report and invited talk · Innovate for Impact",
     href: "https://aiforgood.itu.int/event/innovate-for-impact/",
   },
 ];
@@ -110,7 +104,7 @@ export default function Home() {
           <a href="#trajectory">Trajectory</a>
         </nav>
 
-        <span className="status">INNOVATION INSTITUTE · ACTIVE</span>
+        <span className="status">INNOVATION AND R&amp;D · ACTIVE</span>
       </header>
 
       <main>
@@ -171,9 +165,9 @@ export default function Home() {
               <article className="signal-panel" aria-label="Current research profile">
                 <div className="signal-head">
                   <span>CURRENT POSITION</span>
-                  <span>2026 / ACTIVE</span>
+                  <span>SINCE 2026.01.05</span>
                 </div>
-                <p className="signal-code">INNOVATION INSTITUTE / AI</p>
+                <p className="signal-code">INNOVATION AND R&amp;D / AI</p>
                 <h2>AI Frontier Technology Research Manager</h2>
                 <p className="signal-org">
                   China Mobile (Hong Kong) Innovation Research Institute
@@ -187,13 +181,13 @@ export default function Home() {
               <article className="appointment-brief" aria-label="Previous research appointment">
                 <div className="signal-head">
                   <span>PREVIOUS APPOINTMENT</span>
-                  <span>EPFL / DIAS</span>
+                  <span>2025.01—2025.12</span>
                 </div>
                 <p className="signal-code">DATA-INTENSIVE SYSTEMS</p>
                 <h2>Postdoctoral Researcher</h2>
                 <p>
                   École polytechnique fédérale de Lausanne · Data-Intensive
-                  Applications and Systems Laboratory
+                  Applications and Systems Laboratory · Anastasia Ailamaki
                 </p>
               </article>
 

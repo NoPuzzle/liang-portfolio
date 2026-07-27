@@ -37,12 +37,17 @@ test("server-renders the portfolio content and metadata", async () => {
   assert.match(html, /Recent activity/);
   assert.match(html, /AI Frontier Technology Research Manager/);
   assert.match(html, /China Mobile \(Hong Kong\) Innovation Research Institute/);
+  assert.match(html, /Innovation and R&amp;D/);
+  assert.match(html, /SINCE 2026\.01\.05/);
   assert.match(html, /Postdoctoral Researcher/);
   assert.match(html, /class="appointment-brief"/);
-  assert.match(html, /EPFL \/ DIAS/);
+  assert.match(html, /2025\.01—2025\.12/);
+  assert.match(html, /Anastasia Ailamaki/);
   assert.doesNotMatch(html, /\bCMHK\b/);
   assert.match(html, /Imperial College London/);
   assert.match(html, /PhD in Computing/);
+  assert.match(html, /2020\.10—2024\.10/);
+  assert.match(html, /Thomas Heinis/);
   assert.doesNotMatch(
     html,
     /University of Edinburgh|Monash University|Tianjin Polytechnic University|Master of Data Science|Law &amp; Human Resource Management/,
@@ -51,6 +56,8 @@ test("server-renders the portfolio content and metadata", async () => {
   assert.match(html, /LITune/);
   assert.match(html, /HIRE/);
   assert.match(html, /AI for Good Global Summit/);
+  assert.match(html, /Selected case report and invited talk/);
+  assert.doesNotMatch(html, /Silk Road Intelligence[^<]{0,80}(award|winner)/i);
   assert.match(html, /https:\/\/aiforgood\.itu\.int\/speaker\/liang-liang\//);
   assert.match(html, /https:\/\/aiforgood\.itu\.int\/event\/advancing-ai-in-networks\//);
   assert.match(html, /https:\/\/aiforgood\.itu\.int\/event\/innovate-for-impact\//);
@@ -76,6 +83,9 @@ test("keeps the selected visual and project assets durable", async () => {
   assert.match(layout, /academic-systems-background\.png/);
   assert.match(layout, /academic-systems-background-mobile\.png/);
   assert.match(layout, /NEXT_PUBLIC_BASE_PATH/);
+  assert.match(layout, /openGraph/);
+  assert.match(layout, /summary_large_image/);
+  assert.match(layout, /og\.png/);
   assert.match(css, /body::before\s*\{[\s\S]*position:\s*fixed;/);
   assert.match(css, /body::before\s*\{[\s\S]*min-height:\s*100svh;/);
   assert.match(css, /var\(--academic-background-desktop\)/);
