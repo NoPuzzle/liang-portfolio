@@ -65,12 +65,22 @@ test("server-renders the portfolio content and metadata", async () => {
   assert.match(html, /https:\/\/aiforgood\.itu\.int\/event\/advancing-ai-in-networks\//);
   assert.match(html, /https:\/\/aiforgood\.itu\.int\/event\/innovate-for-impact\//);
   assert.match(html, /Skip to content/);
-  assert.match(html, /PUBLIC INDEX/);
-  assert.match(html, /Google Scholar search/);
-  assert.match(html, /https:\/\/scholar\.google\.com\/scholar\?q=/);
+  assert.match(html, /RESEARCH INDEX/);
+  assert.match(html, /Google Scholar/);
+  assert.match(
+    html,
+    /https:\/\/scholar\.google\.com\/citations\?user=97k8aygAAAAJ(?:&amp;|&)hl=en/,
+  );
   assert.match(html, /https:\/\/www\.semanticscholar\.org\/author\/2087343695/);
+  assert.match(html, /Connect on LinkedIn/);
+  assert.match(html, /May request sign-in/);
+  assert.match(html, /ACM may request browser verification/);
+  assert.match(html, /class="research-card-main"/);
+  assert.match(html, /https:\/\/github\.com\/SWIXProject\/SWIX/);
+  assert.match(html, /https:\/\/github\.com\/Kevinwty0107\/LITune_SIGMOD_25/);
+  assert.match(html, /https:\/\/arxiv\.org\/abs\/2511\.21307/);
   assert.match(html, /PVLDB \/ VLDB 2026 Reviewer/);
-  assert.match(html, /https:\/\/github\.com\/NoPuzzle/);
+  assert.doesNotMatch(html, /https:\/\/github\.com\/NoPuzzle/);
   assert.match(html, /application\/ld\+json/);
   assert.match(html, /"@type":"Person"/);
   assert.doesNotMatch(html, /Your site is taking shape|codex-preview/);
@@ -115,6 +125,9 @@ test("keeps the selected visual and project assets durable", async () => {
   assert.doesNotMatch(css, /url\(["']?\/assets\//);
   assert.doesNotMatch(css, /background-attachment:/);
   assert.match(css, /font-family: var\(--mono\)/);
+  assert.match(css, /\.research-card:focus-within/);
+  assert.match(css, /\.research-card-main::after\s*\{/);
+  assert.doesNotMatch(css, /\.degree-card:hover/);
   assert.match(css, /@media \(max-width: 720px\)/);
   assert.match(css, /prefers-reduced-motion: reduce/);
 

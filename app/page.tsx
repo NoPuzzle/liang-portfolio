@@ -15,8 +15,14 @@ const research = [
     topic: "Sliding-window learned index",
     venue: "SIGMOD 2024",
     description:
-      "A memory-efficient learned index designed for fast-moving time-series windows and evolving access patterns.",
+      "Introduces a flat, adaptive index for sliding-window streams, using 22–42% of the memory of leading alternatives while improving average query performance by 1.2–1.6× on the evaluated workloads.",
     href: "https://doi.org/10.1145/3639296",
+    artifacts: [
+      {
+        label: "Code",
+        href: "https://github.com/SWIXProject/SWIX",
+      },
+    ],
   },
   {
     code: "R.02",
@@ -24,8 +30,18 @@ const research = [
     topic: "AI for systems",
     venue: "SIGMOD 2025",
     description:
-      "Reinforcement-learning-guided tuning that brings adaptive intelligence into practical data infrastructure.",
+      "Introduces end-to-end learned-index tuning through deep reinforcement learning and an online updater, reaching up to 98% runtime reduction and 17× throughput over default settings in evaluation.",
     href: "https://doi.org/10.1145/3725257",
+    artifacts: [
+      {
+        label: "Code",
+        href: "https://github.com/Kevinwty0107/LITune_SIGMOD_25",
+      },
+      {
+        label: "Project",
+        href: "https://kevinwty0107.github.io/LITune_Open/",
+      },
+    ],
   },
   {
     code: "R.03",
@@ -33,8 +49,14 @@ const research = [
     topic: "Intelligent infrastructure",
     venue: "SIGMOD 2026",
     description:
-      "Resource-efficient systems research connecting learned intelligence with deployable infrastructure.",
+      "Combines balanced-tree robustness with learned prediction, delivering up to 41.7× higher throughput and up to 98% lower tail latency against the evaluated learned and traditional indexes.",
     href: "https://doi.org/10.1145/3786657",
+    artifacts: [
+      {
+        label: "Open manuscript",
+        href: "https://arxiv.org/abs/2511.21307",
+      },
+    ],
   },
 ];
 
@@ -69,7 +91,7 @@ const engagements = [
   {
     marker: "2026.07.10",
     title: "Advancing AI in Networks",
-    detail: "Talk and panel · Future networks / ITU-T SG13",
+    detail: "Talk and panel · ITU-T SG13",
     kind: "Talk + panel",
     href: "https://aiforgood.itu.int/event/advancing-ai-in-networks/",
   },
@@ -92,10 +114,11 @@ const publicProfiles = [
   {
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/liang-liang-619631192",
+    accessNote: "May request sign-in",
   },
   {
-    label: "Google Scholar search",
-    href: "https://scholar.google.com/scholar?q=%22Liang+Liang%22+%22SWIX%22",
+    label: "Google Scholar",
+    href: "https://scholar.google.com/citations?user=97k8aygAAAAJ&hl=en",
   },
   {
     label: "ORCID",
@@ -104,16 +127,16 @@ const publicProfiles = [
   {
     label: "Semantic Scholar",
     href: "https://www.semanticscholar.org/author/2087343695",
+    accessNote: "May request browser verification",
   },
   {
     label: "ITU profile",
     href: "https://aiforgood.itu.int/speaker/liang-liang/",
   },
-  {
-    label: "GitHub",
-    href: "https://github.com/NoPuzzle",
-  },
 ];
+
+const primaryContact = publicProfiles[0];
+const researchProfiles = publicProfiles.slice(1);
 
 const personSchema = {
   "@context": "https://schema.org",
@@ -143,9 +166,7 @@ const personSchema = {
     "Learned indexes",
     "Network-enabled intelligence",
   ],
-  sameAs: publicProfiles
-    .filter((profile) => profile.label !== "Google Scholar search")
-    .map((profile) => profile.href),
+  sameAs: publicProfiles.map((profile) => profile.href),
 };
 
 export default function Home() {
@@ -198,11 +219,19 @@ export default function Home() {
               </p>
               <div className="hero-actions">
                 <a href="#research">Explore selected research</a>
-                <a href="#education">View doctoral record</a>
+                <a
+                  className="primary-action"
+                  href={primaryContact.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Connect with Liang Liang on LinkedIn (opens in a new tab and may require sign-in)"
+                >
+                  Connect on LinkedIn ↗
+                </a>
               </div>
-              <div className="profile-links" aria-label="Public profile index">
-                <span>PUBLIC INDEX</span>
-                {publicProfiles.slice(0, 3).map((profile) => (
+              <div className="profile-links" aria-label="Research profile index">
+                <span>RESEARCH INDEX</span>
+                {researchProfiles.slice(0, 3).map((profile) => (
                   <a
                     href={profile.href}
                     target="_blank"
@@ -276,7 +305,7 @@ export default function Home() {
                 </p>
               </article>
 
-              <article className="degree-brief">
+              <article className="degree-brief" aria-label="Doctoral education">
                 <div className="signal-head">
                   <span>DOCTORAL EDUCATION</span>
                   <span>{education.period}</span>
@@ -357,18 +386,38 @@ export default function Home() {
                   <span>{item.venue}</span>
                 </div>
                 <div className="research-body">
-                  <p>{item.topic}</p>
+                  <p className="research-topic">{item.topic}</p>
                   <h3>{item.title}</h3>
-                  <span>{item.description}</span>
+                  <p className="research-description">{item.description}</p>
                 </div>
-                <a
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`Read ${item.title}, ${item.venue} (opens in a new tab)`}
-                >
-                  Read the publication
-                </a>
+                <div className="research-footer">
+                  <a
+                    className="research-card-main"
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Read ${item.title}, ${item.venue} (opens in a new tab; ACM may request browser verification)`}
+                  >
+                    <span>Open DOI ↗</span>
+                    <small>ACM may request browser verification</small>
+                  </a>
+                  <div
+                    className="research-artifacts"
+                    aria-label={`${item.title} public materials`}
+                  >
+                    {item.artifacts.map((artifact) => (
+                      <a
+                        href={artifact.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`${item.title} ${artifact.label} (opens in a new tab)`}
+                        key={artifact.label}
+                      >
+                        {artifact.label} ↗
+                      </a>
+                    ))}
+                  </div>
+                </div>
               </article>
             ))}
           </div>
@@ -432,9 +481,19 @@ export default function Home() {
           <div className="footer-callout">
             <span>OPEN CHANNEL / 2026</span>
             <h2>Connect across research, systems, and standards.</h2>
+            <a
+              className="contact-action"
+              href={primaryContact.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Connect with Liang Liang on LinkedIn (opens in a new tab and may require sign-in)"
+            >
+              <strong>Connect on LinkedIn ↗</strong>
+              <small>{primaryContact.accessNote}</small>
+            </a>
           </div>
           <div className="footer-links" aria-label="External profiles">
-            {publicProfiles.map((profile) => (
+            {researchProfiles.map((profile) => (
               <a
                 href={profile.href}
                 target="_blank"
@@ -442,7 +501,10 @@ export default function Home() {
                 aria-label={`${profile.label} (opens in a new tab)`}
                 key={profile.label}
               >
-                {profile.label}
+                <span>{profile.label}</span>
+                {"accessNote" in profile && profile.accessNote ? (
+                  <small>{profile.accessNote}</small>
+                ) : null}
               </a>
             ))}
           </div>
