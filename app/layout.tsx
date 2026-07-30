@@ -5,6 +5,8 @@ import "./globals.css";
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const canonicalUrl = "https://nopuzzle.github.io/liang-portfolio/";
 const socialImageUrl = `${canonicalUrl}og.png`;
+const desktopBackgroundUrl = `${basePath}/assets/academic-systems-background-formulas.webp`;
+const mobileBackgroundUrl = `${basePath}/assets/academic-systems-background-mobile.webp`;
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -16,6 +18,20 @@ export const metadata: Metadata = {
   title: "Liang Liang — Data-Intensive Systems Research",
   description:
     "Liang Liang is an AI Frontier Technology Research Manager working across multilingual AI, data-intensive systems, and network-enabled intelligence.",
+  authors: [{ name: "Liang Liang", url: canonicalUrl }],
+  creator: "Liang Liang",
+  keywords: [
+    "Liang Liang",
+    "data-intensive systems",
+    "multilingual AI",
+    "learned indexes",
+    "low-resource language data",
+    "network-enabled intelligence",
+  ],
+  robots: {
+    index: true,
+    follow: true,
+  },
   alternates: {
     canonical: canonicalUrl,
   },
@@ -57,8 +73,8 @@ export default function RootLayout({
       <body
         className={`${geistMono.variable} antialiased`}
         style={{
-          "--academic-background-desktop": `url("${basePath}/assets/academic-systems-background.png")`,
-          "--academic-background-mobile": `url("${basePath}/assets/academic-systems-background-mobile.png")`,
+          "--academic-background-desktop": `url("${desktopBackgroundUrl}")`,
+          "--academic-background-mobile": `url("${mobileBackgroundUrl}")`,
         } as React.CSSProperties}
       >
         {children}

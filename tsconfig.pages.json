@@ -9,7 +9,6 @@
   ],
   "exclude": [
     "node_modules",
-    "app/chatgpt-auth.ts",
-    "app/_sites-preview/**"
+    "app/chatgpt-auth.ts"
   ]
 }

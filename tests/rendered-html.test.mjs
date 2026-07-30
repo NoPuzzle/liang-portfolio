@@ -1,14 +1,14 @@
 import assert from "node:assert/strict";
-import { access, readFile } from "node:fs/promises";
+import { access, readFile, stat } from "node:fs/promises";
 import test from "node:test";
 
-async function render() {
+async function render(pathname = "/") {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
   workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
   const { default: worker } = await import(workerUrl.href);
 
   return worker.fetch(
-    new Request("http://localhost/", {
+    new Request(`http://localhost${pathname}`, {
       headers: { accept: "text/html" },
     }),
     {
@@ -57,16 +57,38 @@ test("server-renders the portfolio content and metadata", async () => {
   assert.match(html, /HIRE/);
   assert.match(html, /AI for Good Global Summit/);
   assert.match(html, /Selected case report and invited talk/);
+  assert.match(html, /Speaker profile/);
+  assert.match(html, /Talk \+ panel/);
+  assert.match(html, /Selected case/);
   assert.doesNotMatch(html, /Silk Road Intelligence[^<]{0,80}(award|winner)/i);
   assert.match(html, /https:\/\/aiforgood\.itu\.int\/speaker\/liang-liang\//);
   assert.match(html, /https:\/\/aiforgood\.itu\.int\/event\/advancing-ai-in-networks\//);
   assert.match(html, /https:\/\/aiforgood\.itu\.int\/event\/innovate-for-impact\//);
-  assert.match(html, /OPEN ↗/);
+  assert.match(html, /Skip to content/);
+  assert.match(html, /PUBLIC INDEX/);
+  assert.match(html, /Google Scholar search/);
   assert.match(html, /https:\/\/scholar\.google\.com\/scholar\?q=/);
   assert.match(html, /https:\/\/www\.semanticscholar\.org\/author\/2087343695/);
   assert.match(html, /PVLDB \/ VLDB 2026 Reviewer/);
   assert.match(html, /https:\/\/github\.com\/NoPuzzle/);
+  assert.match(html, /application\/ld\+json/);
+  assert.match(html, /"@type":"Person"/);
   assert.doesNotMatch(html, /Your site is taking shape|codex-preview/);
+});
+
+test("serves crawler discovery routes", async () => {
+  const [robotsResponse, sitemapResponse] = await Promise.all([
+    render("/robots.txt"),
+    render("/sitemap.xml"),
+  ]);
+
+  assert.equal(robotsResponse.status, 200);
+  assert.match(await robotsResponse.text(), /Sitemap: .*\/sitemap\.xml/);
+  assert.equal(sitemapResponse.status, 200);
+  assert.match(
+    await sitemapResponse.text(),
+    /https:\/\/nopuzzle\.github\.io\/liang-portfolio\//,
+  );
 });
 
 test("keeps the selected visual and project assets durable", async () => {
@@ -80,8 +102,8 @@ test("keeps the selected visual and project assets durable", async () => {
   assert.match(page, /midnight|Postdoctoral Researcher|Data-Intensive Systems/i);
   assert.doesNotMatch(page, /SkeletonPreview/);
   assert.match(layout, /Liang Liang — Data-Intensive Systems Research/);
-  assert.match(layout, /academic-systems-background\.png/);
-  assert.match(layout, /academic-systems-background-mobile\.png/);
+  assert.match(layout, /academic-systems-background-formulas\.webp/);
+  assert.match(layout, /academic-systems-background-mobile\.webp/);
   assert.match(layout, /NEXT_PUBLIC_BASE_PATH/);
   assert.match(layout, /openGraph/);
   assert.match(layout, /summary_large_image/);
@@ -100,6 +122,38 @@ test("keeps the selected visual and project assets durable", async () => {
     access(new URL("../public/assets/midnight-systems-background.png", import.meta.url)),
     access(new URL("../public/assets/academic-systems-background.png", import.meta.url)),
     access(new URL("../public/assets/academic-systems-background-mobile.png", import.meta.url)),
+    access(
+      new URL(
+        "../public/assets/academic-systems-background-formulas.webp",
+        import.meta.url,
+      ),
+    ),
+    access(
+      new URL(
+        "../public/assets/academic-systems-background-mobile.webp",
+        import.meta.url,
+      ),
+    ),
     access(new URL("../design-reference/midnight-systems-reference.png", import.meta.url)),
   ]);
+
+  const [desktopBackground, mobileBackground, socialCard] = await Promise.all([
+    stat(
+      new URL(
+        "../public/assets/academic-systems-background-formulas.webp",
+        import.meta.url,
+      ),
+    ),
+    stat(
+      new URL(
+        "../public/assets/academic-systems-background-mobile.webp",
+        import.meta.url,
+      ),
+    ),
+    stat(new URL("../public/og.png", import.meta.url)),
+  ]);
+
+  assert.ok(desktopBackground.size < 500_000);
+  assert.ok(mobileBackground.size < 500_000);
+  assert.ok(socialCard.size < 500_000);
 });

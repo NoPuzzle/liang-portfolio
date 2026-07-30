@@ -63,18 +63,21 @@ const engagements = [
     marker: "2026.07",
     title: "AI for Good Global Summit 2026",
     detail: "Official speaker profile · Geneva",
+    kind: "Speaker profile",
     href: "https://aiforgood.itu.int/speaker/liang-liang/",
   },
   {
     marker: "2026.07.10",
     title: "Advancing AI in Networks",
     detail: "Talk and panel · Future networks / ITU-T SG13",
+    kind: "Talk + panel",
     href: "https://aiforgood.itu.int/event/advancing-ai-in-networks/",
   },
   {
     marker: "2026.07.07",
     title: "Silk Road Intelligence",
     detail: "Selected case report and invited talk · Innovate for Impact",
+    kind: "Selected case",
     href: "https://aiforgood.itu.int/event/innovate-for-impact/",
   },
 ];
@@ -85,10 +88,78 @@ const service = [
   "IEEE TKDE 2025 Reviewer",
 ];
 
+const publicProfiles = [
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/liang-liang-619631192",
+  },
+  {
+    label: "Google Scholar search",
+    href: "https://scholar.google.com/scholar?q=%22Liang+Liang%22+%22SWIX%22",
+  },
+  {
+    label: "ORCID",
+    href: "https://orcid.org/0000-0002-4566-6178",
+  },
+  {
+    label: "Semantic Scholar",
+    href: "https://www.semanticscholar.org/author/2087343695",
+  },
+  {
+    label: "ITU profile",
+    href: "https://aiforgood.itu.int/speaker/liang-liang/",
+  },
+  {
+    label: "GitHub",
+    href: "https://github.com/NoPuzzle",
+  },
+];
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Liang Liang",
+  alternateName: "梁良",
+  url: "https://nopuzzle.github.io/liang-portfolio/",
+  jobTitle: "AI Frontier Technology Research Manager",
+  worksFor: {
+    "@type": "Organization",
+    name: "China Mobile (Hong Kong) Innovation Research Institute",
+  },
+  alumniOf: [
+    {
+      "@type": "CollegeOrUniversity",
+      name: "Imperial College London",
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      name: "EPFL",
+    },
+  ],
+  knowsAbout: [
+    "Data-intensive systems",
+    "Multilingual AI",
+    "Low-resource language data",
+    "Learned indexes",
+    "Network-enabled intelligence",
+  ],
+  sameAs: publicProfiles
+    .filter((profile) => profile.label !== "Google Scholar search")
+    .map((profile) => profile.href),
+};
+
 export default function Home() {
   return (
-    <div className="site" id="top">
-      <header className="topbar shell">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+      />
+      <div className="site" id="top">
+        <a className="skip-link" href="#main-content">
+          Skip to content
+        </a>
+        <header className="topbar shell">
         <a className="brand" href="#top" aria-label="Liang Liang home">
           <span className="brand-mark">LL</span>
           <span>
@@ -105,9 +176,9 @@ export default function Home() {
         </nav>
 
         <span className="status">INNOVATION AND R&amp;D · ACTIVE</span>
-      </header>
+        </header>
 
-      <main>
+        <main id="main-content">
         <section className="hero shell" id="profile" aria-labelledby="hero-title">
           <div className="identity-block">
             <div className="hero-copy">
@@ -129,6 +200,20 @@ export default function Home() {
                 <a href="#research">Explore selected research</a>
                 <a href="#education">View doctoral record</a>
               </div>
+              <div className="profile-links" aria-label="Public profile index">
+                <span>PUBLIC INDEX</span>
+                {publicProfiles.slice(0, 3).map((profile) => (
+                  <a
+                    href={profile.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${profile.label} (opens in a new tab)`}
+                    key={profile.label}
+                  >
+                    {profile.label} ↗
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -147,7 +232,8 @@ export default function Home() {
                     className="activity-item"
                     href={item.href}
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
+                    aria-label={`${item.title}: ${item.kind} (opens in a new tab)`}
                     key={`${item.marker}-${item.title}`}
                   >
                     <span>{item.marker}</span>
@@ -155,7 +241,7 @@ export default function Home() {
                       <strong>{item.title}</strong>
                       <small>{item.detail}</small>
                     </span>
-                    <span className="activity-link">OPEN ↗</span>
+                    <span className="activity-link">{item.kind} ↗</span>
                   </a>
                 ))}
               </div>
@@ -186,8 +272,7 @@ export default function Home() {
                 <p className="signal-code">DATA-INTENSIVE SYSTEMS</p>
                 <h2>Postdoctoral Researcher</h2>
                 <p>
-                  École polytechnique fédérale de Lausanne · Data-Intensive
-                  Applications and Systems Laboratory · Anastasia Ailamaki
+                  EPFL · DIAS Laboratory · Anastasia Ailamaki
                 </p>
               </article>
 
@@ -276,7 +361,12 @@ export default function Home() {
                   <h3>{item.title}</h3>
                   <span>{item.description}</span>
                 </div>
-                <a href={item.href} target="_blank" rel="noreferrer">
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Read ${item.title}, ${item.venue} (opens in a new tab)`}
+                >
                   Read the publication
                 </a>
               </article>
@@ -336,23 +426,29 @@ export default function Home() {
             </div>
           </div>
         </section>
-      </main>
+        </main>
 
-      <footer className="footer shell">
-        <div className="footer-callout">
-          <span>OPEN CHANNEL / 2026</span>
-          <h2>Connect across research, systems, and standards.</h2>
-        </div>
-        <div className="footer-links" aria-label="External profiles">
-          <a href="https://www.linkedin.com/in/liang-liang-619631192" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a href="https://scholar.google.com/scholar?q=%22Liang+Liang%22+%22SWIX%22" target="_blank" rel="noreferrer">Google Scholar</a>
-          <a href="https://orcid.org/0000-0002-4566-6178" target="_blank" rel="noreferrer">ORCID</a>
-          <a href="https://www.semanticscholar.org/author/2087343695" target="_blank" rel="noreferrer">Semantic Scholar</a>
-          <a href="https://aiforgood.itu.int/speaker/liang-liang/" target="_blank" rel="noreferrer">ITU profile</a>
-          <a href="https://github.com/NoPuzzle" target="_blank" rel="noreferrer">GitHub</a>
-        </div>
-        <p>22.3193° N · 114.1694° E · HONG KONG</p>
-      </footer>
-    </div>
+        <footer className="footer shell">
+          <div className="footer-callout">
+            <span>OPEN CHANNEL / 2026</span>
+            <h2>Connect across research, systems, and standards.</h2>
+          </div>
+          <div className="footer-links" aria-label="External profiles">
+            {publicProfiles.map((profile) => (
+              <a
+                href={profile.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${profile.label} (opens in a new tab)`}
+                key={profile.label}
+              >
+                {profile.label}
+              </a>
+            ))}
+          </div>
+          <p>22.3193° N · 114.1694° E · HONG KONG</p>
+        </footer>
+      </div>
+    </>
   );
 }
